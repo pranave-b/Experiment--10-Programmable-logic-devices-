@@ -16,16 +16,54 @@ Figure -01 PROM
  
  
 ### Procedure
-/* write all the steps invloved */
+```
+Step 1:
+Open Quartus II and select new project and choose the file location.
+
+Step 2:
+Module Declaration. Module should have the file name.
+
+Step 3:
+Input-Output Delecaration.
+
+Step 4:
+Use begin declaration to define the functionality of logic circuits.
+
+Step 5:
+At the end give endmodule.
+
+Step 6:
+Run the program and choose RTL viewer to get RTL realization.
+```
 
 
 
 ### PROGRAM 
-/*
-Program for PROM 
-Developed by: 
-RegisterNumber:  
-*/
+```
+Developed by: PRANAVE B
+RegisterNumber:  212221240040
+```
+```
+module ROM_code(out, addr, CS);
+output[15:0] out;
+input[3:0] addr;
+input CS;
+reg [15:0] out;
+reg [15:0] ROM[15:0];
+always @(negedge CS)
+begin
+ROM[0]=16'h5601; ROM[1]=16'h3401;
+ROM[2]=16'h1801; ROM[3]=16'h0ac1;
+ROM[4]=16'h0521; ROM[5]=16'h0221;
+ROM[6]=16'h5601; ROM[7]=16'h5401;
+ROM[8]=16'h4801; ROM[9]=16'h3801;
+ROM[10]=16'h3001; ROM[11]=16'h2401;
+ROM[12]=16'h1c01; ROM[13]=16'h1601;
+ROM[14]=16'h5601; ROM[15]=16'h5401;
+out=ROM[addr];
+end
+endmodule
+```
 
 
 
@@ -33,6 +71,7 @@ RegisterNumber:
 
 
 ### RTL LOGIC  
+![Screenshot 2022-06-09 151830](https://user-images.githubusercontent.com/93427208/172820720-a7c89a95-87a2-49b8-b05a-636547df489b.png)
 
 
 
@@ -42,6 +81,8 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS  
+<img width="898" alt="waveform af" src="https://user-images.githubusercontent.com/93427208/172820830-663e8146-6309-48c3-8cb8-6e02a2e13e01.png">
+
 
 
 
@@ -54,3 +95,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+Program has been implemented using verilog and output has been validated.
